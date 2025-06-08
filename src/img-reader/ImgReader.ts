@@ -22,7 +22,18 @@ export class ImgReader {
 	public loadDIR(buf: ArrayBuffer): void {
 		let assets: Asset[] = [];
 		let view            = new DataView(buf);
-		for (let i = 0; i < buf.byteLength; i += 32) {
+		let byteLength      = buf.byteLength;
+
+		// if "VER2" - in fist 4 bytes => this is SA .img archive
+		const isSa = ('VER2' === this.UTF8ToString(new Uint8Array(buf, 0, 4)));
+
+		if (isSa) {
+			// second 4 bytes - Number Of Entries in archive
+			byteLength = (32 * view.getUint32(4, true)) + 8;
+		}
+
+		// in SA: 4 bytes = "VER2" + 4 bytes = Number Of Entries
+		for (let i = (isSa ? 8 : 0); i < byteLength; i += 32) {
 			const offset = view.getUint32(i, true);
 			const size   = view.getUint32(i + 4, true);
 			const name   = this.UTF8ToString(new Uint8Array(buf, i + 8, 24));

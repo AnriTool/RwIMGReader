@@ -1,7 +1,7 @@
 {
   "name": "rw-img-reader",
   "description": "Grand Theft Auto(III, VC, SA) img-archive reader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/AnriTool/RwIMGReader#readme",
   "repository": {
     "type": "git",
