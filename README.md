@@ -1,4 +1,7 @@
 # Grand Theft Auto(III, VC, SA) img-archive reader.
+[![npm](https://img.shields.io/npm/v/rw-img-reader.svg)](https://www.npmjs.com/package/rw-img-reader)
+[![NPM](https://img.shields.io/npm/l/rw-img-reader.svg)](https://github.com/AnriTool/RwIMGReader/blob/main/LICENSE)
+
 Allows you to get data from GTA [III, VC, SA] img archive
 
 ## Example
