@@ -1,0 +1,36 @@
+{
+  "name": "rw-img-reader",
+  "description": "Grand Theft Auto(III, VC, SA) img-archive reader",
+  "version": "1.0.0",
+  "homepage": "https://github.com/AnriTool/RwIMGReader#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnriTool/RwIMGReader.git"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "keywords": [
+    "gta", "gtasa", "gtavc", "gta3", "gtaiii",
+    "renderware", ".img", "img archive", "gta3.img"
+  ],
+  "author": "AnriTool",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "files": [
+    "lib",
+    "src",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "tsconfig.json"
+  ]
+}
