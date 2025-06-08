@@ -5,7 +5,15 @@
 Allows you to get data from GTA [III, VC, SA] img archive
 
 ## Example
-### In node(without browser)
+
+### GTA SA Features
+GTA SA does not have a .dir archive, it is included inside the .img. You can put one buffer in both loadDIR and loadIMG methods
+```ts
+const resource = readFileSync('./assets/gta3.img').buffer;
+imgReader.loadDIR(resource);
+imgReader.loadIMG(resource);
+```
+### console example(without browser)
 save infernus.txd + infernus.dff
 ```ts
 import {ImgReader} from './ImgReader'
@@ -23,7 +31,7 @@ for (const asset of imgReader.getAssetList()) {
 }
 ```
 
-### With browser
+### Browser example
 write all resources in browser console
 ```ts
 import {ImgReader} from './ImgReader'
