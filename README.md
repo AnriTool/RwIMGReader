@@ -16,7 +16,7 @@ imgReader.loadIMG(resource);
 ### console example(without browser)
 save infernus.txd + infernus.dff
 ```ts
-import {ImgReader} from './ImgReader'
+import {ImgReader} from "rw-img-reader";
 import {readFileSync, writeFileSync} from 'fs';
 
 const imgReader = new ImgReader();
@@ -34,7 +34,7 @@ for (const asset of imgReader.getAssetList()) {
 ### Browser example
 write all resources in browser console
 ```ts
-import {ImgReader} from './ImgReader'
+import {ImgReader} from "rw-img-reader";
 
 async function example() {
 	const imgReader = new ImgReader();
@@ -53,18 +53,16 @@ example();
 
 ## using with [rw-parser](https://github.com/Timic3/rw-parser)
 ```ts
-for (const asset of imgReader.getAssetList()) {
-	if (asset.name.includes('infernus')) {
 
-		if (asset.name.includes('.dff')) {
-			const dffParser = new DffParser(Buffer.from(imgReader.loadAsset(asset)))
-			console.log(dffParser.parse());
-		}
+const dffAsset = imgReader.getAssetByName('infernus.dff');
+if (dffAsset) {
+	const dffParser = new DffParser(Buffer.from(imgReader.loadAsset(dffAsset)))
+	console.log(dffParser.parse());
+}
 
-		if (asset.name.includes('.txd')) {
-			const txdParser = new TxdParser(Buffer.from(imgReader.loadAsset(asset)))
-			console.log(txdParser.parse());
-		}
-	}
+const txdAsset = imgReader.getAssetByName('infernus.txd');
+if (txdAsset) {
+	const dffParser = new TxdParser(Buffer.from(imgReader.loadAsset(txdAsset)))
+	console.log(dffParser.parse());
 }
 ```
